@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { getAllProducts } from "../../axios-instance/HttpRequestHandlerService";
 import CartComponent from "../../components/cartComponent/CartComponent";
 import ProductListComponent from "../../components/common/productListComponent/ProductListComponent";
+import ErrorBoundary from "../../errorBoundaries/ErrorBoundary";
 
 /**
  *
@@ -29,18 +30,23 @@ function HomePage({ showCart, cartToggleHandler, updateCartItemCount }) {
    *
    */
   const getAvailableProducts = async () => {
-    let productsData = await getAllProducts();
-    productsData = productsData?.data
-      ? productsData.data.map((product) => {
-          return {
-            // converting quantity and price fields to number from string to avoid type conflicts
-            ...product,
-            quantity: +product.quantity,
-            price: +product.price,
-          };
-        })
-      : [];
-    updateAvailableProducts(productsData);
+    try {
+      let productsData = await getAllProducts();
+      productsData = productsData?.data
+        ? productsData.data.map((product) => {
+            return {
+              // converting quantity and price fields to number from string to avoid type conflicts
+              ...product,
+              quantity: +product.quantity,
+              price: +product.price,
+            };
+          })
+        : [];
+      updateAvailableProducts(productsData);
+    } catch (err) {
+      //here we can add error handeling if api throws any error
+      console.log(err);
+    }
   };
 
   /**
@@ -192,11 +198,13 @@ function HomePage({ showCart, cartToggleHandler, updateCartItemCount }) {
 
   return (
     <Fragment>
-      <ProductListComponent
-        productList={availableProducts}
-        productActionctionHandler={addToCartHandler}
-        action="ADD TO CART"
-      />
+      <ErrorBoundary>
+        <ProductListComponent
+          productList={availableProducts}
+          productActionctionHandler={addToCartHandler}
+          action="ADD TO CART"
+        />
+      </ErrorBoundary>
       {showCart && (
         <CartComponent
           cartItems={cartProducts}

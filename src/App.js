@@ -1,9 +1,10 @@
-import HeaderComponent from "./components/headerComponent/HeaderComponent";
-import FooterComponent from "./components/footercomponent/FooterComponent";
+import HeaderComponent from "./components/common/headerComponent/HeaderComponent";
+import FooterComponent from "./components/common/footercomponent/FooterComponent";
 import HomePage from "./containers/HomePage/HomePage";
 
 import "./App.scss";
 import { useState } from "react";
+import ErrorBoundary from "./errorBoundaries/ErrorBoundary";
 
 /**
  *
@@ -38,11 +39,13 @@ function App() {
         cartItemCount={cartItemsCount}
       />
       <main>
-        <HomePage
-          showCart={showCart}
-          updateCartItemCount={chartItemCountHandler}
-          cartToggleHandler={updateCartToggle}
-        />
+        <ErrorBoundary>
+          <HomePage
+            showCart={showCart}
+            updateCartItemCount={chartItemCountHandler}
+            cartToggleHandler={updateCartToggle}
+          />
+        </ErrorBoundary>
       </main>
       <FooterComponent></FooterComponent>
     </div>

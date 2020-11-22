@@ -55,7 +55,7 @@ const CartComponent = ({
       <section className="cart">
         <div className="cart__header">
           <span>Your Cart</span>
-          <div>{`cart Total: Rs. ${getCartTotal()}`}</div>
+          <div>{`Cart Total: Rs. ${getCartTotal()}`}</div>
           <span
             onClick={() => {
               cartToggleHandler(false);

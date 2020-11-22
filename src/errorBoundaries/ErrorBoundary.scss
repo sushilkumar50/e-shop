@@ -1,0 +1,13 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #5a5e61;
+  transform: translate(-50%, -50%);
+}
