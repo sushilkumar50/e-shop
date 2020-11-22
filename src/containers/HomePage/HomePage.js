@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { getAllProducts } from "../../axios-instance/HttpRequestHandlerService";
 import CartComponent from "../../components/cartComponent/CartComponent";
 import ProductListComponent from "../../components/common/productListComponent/ProductListComponent";
-import ErrorBoundary from "../../errorBoundaries/ErrorBoundary";
 
 /**
  *
@@ -198,13 +197,11 @@ function HomePage({ showCart, cartToggleHandler, updateCartItemCount }) {
 
   return (
     <Fragment>
-      <ErrorBoundary>
-        <ProductListComponent
-          productList={availableProducts}
-          productActionctionHandler={addToCartHandler}
-          action="ADD TO CART"
-        />
-      </ErrorBoundary>
+      <ProductListComponent
+        productList={availableProducts}
+        productActionctionHandler={addToCartHandler}
+        action="ADD TO CART"
+      />
       {showCart && (
         <CartComponent
           cartItems={cartProducts}

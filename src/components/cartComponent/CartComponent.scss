@@ -8,11 +8,12 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.85);
   text-align: center;
+  pointer-events: auto;
   .cart {
     position: relative;
     background-color: #fff;
     box-sizing: border-box;
-    width: 90%;
+    width: 55%;
     max-height: 80%;
     min-height: 50%;
     top: 45%;

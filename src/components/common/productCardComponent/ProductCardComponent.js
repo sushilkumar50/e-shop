@@ -27,12 +27,12 @@ const ProductCardComponent = ({ product, productActionHandler, action }) => {
     productActionHandler(product.id);
   };
   return (
-    <div className="list-item">
+    <div className={`list-item ${action === "REMOVE" ? "cart-item" : ""}`}>
       <ImageComponent
         src={product.image}
         alt={`${product.name} image`}
-        width={"100%"}
-        height={300}
+        width={action === "REMOVE" ? "30%" : "100%"}
+        height={action === "REMOVE" ? "100%" : 300}
       />
       <div className="content">
         <div className="content__name item">{product.name}</div>

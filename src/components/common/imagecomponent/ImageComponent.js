@@ -25,7 +25,7 @@ ImageComponent.propTypes = {
   src: Proptypes.string,
   alt: Proptypes.string,
   width: Proptypes.oneOfType([Proptypes.string, Proptypes.number]),
-  height: Proptypes.number,
+  height: Proptypes.oneOfType([Proptypes.string, Proptypes.number]),
 };
 
 export default ImageComponent;

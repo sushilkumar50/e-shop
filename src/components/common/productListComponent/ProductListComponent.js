@@ -37,7 +37,11 @@ const ProductListComponent = ({
       );
     });
   };
-  return <div className="productList">{prepareProductList()}</div>;
+  return (
+    <div className={`productList ${action === "REMOVE" ? "cart-list" : ""}`}>
+      {prepareProductList()}
+    </div>
+  );
 };
 
 ProductListComponent.propTypes = {
