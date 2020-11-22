@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ShoppingCart } from "react-feather";
 import ImageComponent from "../imagecomponent/ImageComponent";
-import Logo from "../../../Assets/logo1.png";
+import Logo from "../../../Assets/logo2.png";
 import "./HeaderComponent.scss";
 
 function HeaderComponent({ cartToggleHandler, cartItemCount }) {
