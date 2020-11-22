@@ -3,14 +3,33 @@ import PropTypes from "prop-types";
 import { XCircle, PlusSquare } from "react-feather";
 
 import "./CartComponent.scss";
-import ProductListComponent from "../productListComponent/ProductListComponent";
+import ProductListComponent from "../common/productListComponent/ProductListComponent";
 
+/**
+ *
+ * @param {Array} cartItems - list of items in cart
+ *
+ * @param {Function} cartToggleHandler - handler to hide or show cart
+ *
+ * @param {Function} productActionctionHandler - handler to remove items from cart
+ *
+ * @param {string} action - remove action
+ *
+ *
+ * @returns cart items list jsx
+ *
+ */
 const CartComponent = ({
   cartItems,
   cartToggleHandler,
   productActionHandler,
   action,
 }) => {
+  /**
+   *
+   * to get total cart amount
+   *
+   */
   const getCartTotal = () => {
     return cartItems.reduce((prev, currProduct) => {
       prev = prev + +currProduct.quantity * +currProduct.price;
@@ -18,6 +37,11 @@ const CartComponent = ({
     }, 0);
   };
 
+  /**
+   *
+   * jsx to render when there are no items in cart
+   *
+   */
   const emptyCart = () => {
     return (
       <div className="emptyCart-message">
@@ -46,7 +70,7 @@ const CartComponent = ({
             <ProductListComponent
               productList={cartItems}
               action={action}
-              cartActionHandler={productActionHandler}
+              productActionctionHandler={productActionHandler}
             />
           </div>
         ) : null}

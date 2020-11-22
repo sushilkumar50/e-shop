@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   box-sizing: border-box;
-  padding: 5px 20px;
+  padding: 10px 20px;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -20,5 +20,18 @@
         font-weight: 600;
       }
     }
+  }
+
+  .items-count {
+    position: absolute;
+    top: 2px;
+    right: 11px;
+    color: #fff;
+    background-color: #464749;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 13px;
   }
 }

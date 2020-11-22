@@ -5,7 +5,24 @@ import "./ProductCardComponent.scss";
 import ImageComponent from "../imagecomponent/ImageComponent";
 import ButtonComponent from "../buttonComponent/ButtonComponent";
 
+/**
+ *
+ * @param {Object} product - product to be rendered
+ *
+ * @param {Function} productActionHandler - handler for actions on product adding or removing from cart
+ *
+ * @param {string} action - action that can be performed on product item
+ *
+ * @returns single product card
+ *
+ */
+
 const ProductCardComponent = ({ product, productActionHandler, action }) => {
+  /**
+   *
+   * calls provided action handler with product id to be perfomed action on
+   *
+   */
   const clickHandler = () => {
     productActionHandler(product.id);
   };

@@ -4,14 +4,34 @@ import ProductCardComponent from "../productCardComponent/ProductCardComponent";
 
 import "./ProductListComponent.scss";
 
-const ProductListComponent = ({ productList, cartActionHandler, action }) => {
+/**
+ *
+ * @param {Array} productList - list of products to be rendered
+ *
+ * @param {Function} productActionctionHandler - function that handles anty actions on product
+ *
+ * @param {string} action - actions to be performed on product ADD TO CART or REMOVE
+ *
+ *
+ * @returns jsx for product list
+ */
+const ProductListComponent = ({
+  productList,
+  productActionctionHandler,
+  action,
+}) => {
+  /**
+   *
+   * prepare jsx for products provided to component
+   *
+   */
   const prepareProductList = () => {
     return productList.map((product) => {
       return (
         <ProductCardComponent
           key={product.id}
           product={product}
-          productActionHandler={cartActionHandler}
+          productActionHandler={productActionctionHandler}
           action={action}
         />
       );
@@ -31,8 +51,8 @@ ProductListComponent.propTypes = {
       image: PropTypes.string,
     })
   ),
-  cartActionHandler: PropTypes.func,
-  action: PropTypes.string,
+  productActionctionHandler: PropTypes.func,
+  action: PropTypes.oneOf(["ADD TO CART", "REMOVE"]),
 };
 
 export default ProductListComponent;
