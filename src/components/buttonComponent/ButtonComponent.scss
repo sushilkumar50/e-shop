@@ -1,0 +1,13 @@
+.primaryButton {
+  width: 80%;
+  height: 30px;
+  padding: 5 20;
+  outline: none;
+  &:hover {
+    background-color: rgb(223, 221, 221);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

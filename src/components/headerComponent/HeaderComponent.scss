@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  padding: 5px 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #fff;
+  align-items: center;
+  box-shadow: 0 4px 12px 0 #0000000d;
+  &__item {
+    &:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
+}
